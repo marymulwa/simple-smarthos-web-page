@@ -5,25 +5,27 @@
     <title>smartHos page</title>
     <style>
         body {
-            background-color: aliceblue;
-            padding-bottom: 0px;
-            text-align: center;
-            text-underline-mode: underline;
+            background-color: deepskyblue;
         }
 
-        .form-group-10 {
-            font-weight: bold;
-            margin-left: 2%;
-            margin-bottom: 0px;
-            padding-bottom: 10px;
+        .form-row input {
+            font-size: 25px;
+            height: 50px;
+            width: 50%;
+            border-radius: 35px;
+            margin-top: 50px;
+            margin-left: 450px;
+            display: flex;
         }
 
-        .form-group-20 {
-            margin-top: 35px;
-            margin-left: 2%;
+        label {
+            font-size: 25px;
             font-weight: bold;
-            margin-bottom: 0px;
-            padding-bottom: 10px;
+            height: 50px;
+            width: 50%;
+            border-radius: 25px;
+            margin-left: 45%;
+            padding-top: 40px;
         }
 
         h1 {
@@ -33,25 +35,15 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
-            max-height: 550px;
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            margin-top: 40px;
         }
 
-        input, textarea {
-            margin-left: 30px;
-            margin-top: 15px;
-            background-color: white;
-            color: blueviolet;
-            height: 50px;
-            width: 500px;
-            border-radius: 25px;
-        }
-
-        .login-btn {
-            background-color: darkturquoise;
+        .login-btn, .signup-btn {
+            background-color: #4CAF50;
             color: black;
             text-align: center;
             font-weight: bold;
@@ -59,10 +51,22 @@
             font-size: 18px;
             border: 2px solid darkturquoise;
             border-radius: 25px;
-            height: 45px;
-            width: 150px;
-            margin-top: 30px;
+            height: 50px;
+            width: 180px;
             cursor: pointer;
+        }
+
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: navy;
+            text-decoration: none;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
         }
 
         h2 {
@@ -72,15 +76,14 @@
             color: grey;
             font-style: italic;
             margin-top: 20px;
+            margin-left: 35%;
         }
-
-
 
         .main-menu {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 80px;
+            margin-top: 90px;
             padding: 0 50px;
             margin-left: 5px;
         }
@@ -101,13 +104,16 @@
             color: navy;
             text-decoration: none;
             font-size: 20px;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             transition: background-color 0.3s ease;
         }
 
+        button:hover {
+            background-color: #45a049;
+        }
+
         footer {
-            text-align: center;
             font-family: fantasy;
             font-weight: lighter;
             font-size: 25px;
@@ -117,33 +123,40 @@
 </head>
 <body>
 <h1>WELCOME ALL TO JESTMORE SMARTHOS&#128151;</h1>
+<form action="/login" method="POST">
+    <div class="form-row">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-row">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
 
-<div class="form-group-10">
-    <label for="username">Username:</label><br>
-</div>
-<div>
-    <input type="text" id="username" name="username" required>
-</div>
-<div class="form-group-20">
-    <label for="password">Password:</label>
-</div>
-<div>
-    <input type="password" id="password" name="password" required>
-</div>
-<button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+    <div class="button-container">
+        <button class="login-btn" type="submit">Login</button>
+        <button class="signup-btn" onclick="window.location.href='/signup'">Sign Up</button>
+    </div>
 
-<nav class="main-menu">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="plans.html">Plans</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+    <!-- Added signup link 8px below buttons -->
+    <a href="/signup" class="signup-link">Don't have an account? Sign up here to create </a>
 
-<h2>## We are because of you </h2>
-<footer>
-    <p>&copy; 2025 JESTMORE SMARTHOS LTD. All rights reserved.</p>
-</footer>
+    <nav class="main-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="plans.html">Plans</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
+    <h2>## We are because of you </h2>
+    <footer>
+        <p>&copy; 2025 JESTMORE SMARTHOS LTD. All rights reserved.</p>
+    </footer>
+</form>
 </body>
 </html>
