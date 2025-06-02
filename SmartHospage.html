@@ -1,466 +1,466 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>smartHos - Jesmelliss Hospital</title>
-        <style>
-            :root {
-                --primary-color: #1a73e8;
-                --secondary-color: #34a853;
-                --accent-color: #8ab4f8;
-                --text-color: #333;
-                --light-bg: #f0f8ff;
-                --error-color: #d32f2f;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smartHos - Jesmelliss Hospital</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #8ab4f8;
+            --text-color: #333;
+            --light-bg: #f0f8ff;
+            --error-color: #d32f2f;
+        }
 
-            body {
-                background-color: white;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                margin: 0;
-                padding: 0;
-                line-height: 1.6;
-            }
+        body {
+            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-                position: relative;
-            }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
 
-            /* Hamburger Menu Styles */
-            .menu-toggle {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 1000;
-                cursor: pointer;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 21px;
-            }
+        /* Hamburger Menu Styles */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
 
-            .menu-toggle span {
-                display: block;
-                height: 3px;
-                width: 100%;
-                background-color: var(--primary-color);
-                border-radius: 3px;
-                transition: all 0.3s ease;
-            }
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
 
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
 
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
 
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
 
-            .main-menu {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 250px;
-                height: 100vh;
-                background-color: white;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                z-index: 999;
-                transition: right 0.3s ease;
-                padding-top: 60px;
-            }
+        .main-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 250px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 999;
+            transition: right 0.3s ease;
+            padding-top: 60px;
+        }
 
-            .main-menu.active {
-                right: 0;
-            }
+        .main-menu.active {
+            right: 0;
+        }
 
-            .main-menu ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
+        .main-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-            .main-menu li {
-                padding: 15px 20px;
-                border-bottom: 1px solid #eee;
-            }
+        .main-menu li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
 
-            .main-menu a {
-                color: var(--text-color);
-                text-decoration: none;
-                font-weight: 600;
-                display: block;
-                transition: color 0.3s;
-            }
+        .main-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            transition: color 0.3s;
+        }
 
-            .main-menu a:hover {
-                color: var(--primary-color);
-            }
+        .main-menu a:hover {
+            color: var(--primary-color);
+        }
 
-            /* Rest of your styles */
-            header {
-                text-align: center;
-                padding: 30px 0;
-            }
+        /* Rest of your styles */
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
 
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #666;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 15px auto;
+        }
+
+        .login-form {
+            background: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        .login-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #0d5bba;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            background: white;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: -8px;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .signup-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
-                color: var(--primary-color);
-                margin-bottom: 10px;
-                font-weight: 700;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-                color: #666;
-                text-align: center;
-                margin: 40px 0;
-                position: relative;
-            }
-
-            h2::after {
-                content: '';
-                display: block;
-                width: 100px;
-                height: 3px;
-                background: var(--primary-color);
-                margin: 15px auto;
+                font-size: 2rem;
             }
 
             .login-form {
-                background: white;
-                max-width: 500px;
-                margin: 30px auto;
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            }
-
-            .form-group {
-                margin-bottom: 25px;
-                position: relative;
-            }
-
-            label {
-                display: block;
-                margin-bottom: 8px;
-                font-weight: 600;
-                color: var(--text-color);
-            }
-
-            input {
-                width: 100%;
-                padding: 12px 15px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                font-size: 16px;
-                transition: border 0.3s;
-            }
-
-            input:focus {
-                border-color: var(--primary-color);
-                outline: none;
-                box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
-            }
-
-            .login-btn {
-                background-color: var(--primary-color);
-                color: white;
-                border: none;
-                padding: 12px 20px;
-                font-size: 16px;
-                font-weight: 600;
-                border-radius: 5px;
-                cursor: pointer;
-                width: 100%;
-                transition: background-color 0.3s;
-            }
-
-            .login-btn:hover {
-                background-color: #0d5bba;
-            }
-
-            .error-message {
-                color: var(--error-color);
-                font-size: 0.9rem;
-                margin-top: 5px;
-                display: none;
-            }
-
-            .password-container {
-                position: relative;
-            }
-
-            .toggle-password {
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                cursor: pointer;
-                color: #666;
+                padding: 20px;
             }
 
             .features {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-                margin: 40px 0;
+                flex-direction: column;
+                align-items: center;
             }
+        }
+    </style>
+</head>
+<body>
+<!-- Hamburger Menu Toggle -->
+<div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
-            .feature-card {
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-                width: 280px;
-                text-align: center;
-                transition: transform 0.3s;
-            }
+<!-- Main Menu (hidden by default) -->
+<nav class="main-menu" id="mainMenu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="plans.html">Plans</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+    </ul>
+</nav>
 
-            .feature-card:hover {
-                transform: translateY(-5px);
-            }
+<div class="container">
+    <header>
+        <h1>Welcome to Jesmelliss smartHos <span style="color: #e91e63;">&#128151;</span></h1>
+        <p>Your health is our priority</p>
+    </header>
 
-            .feature-icon {
-                font-size: 2.5rem;
-                color: var(--primary-color);
-                margin-bottom: 15px;
-            }
+    <main>
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+                <div class="error-message" id="usernameError">Please enter a valid username</div>
+            </div>
 
-            footer {
-                text-align: center;
-                margin-top: 50px;
-                padding: 20px;
-                color: #666;
-                background: white;
-            }
-
-            .forgot-password {
-                text-align: right;
-                margin-top: -8px;
-                margin-bottom: 20px;
-            }
-
-            .forgot-password a {
-                color: var(--primary-color);
-                text-decoration: none;
-                font-size: 0.9rem;
-            }
-            .signup-link {
-                text-align: center;
-                margin-top: 20px;
-                font-size: 0.9rem;
-            }
-
-            .signup-link a {
-                color: var(--primary-color);
-                text-decoration: none;
-                font-weight: 600;
-            }
-
-            .signup-link a:hover {
-                text-decoration: underline;
-            }
-
-            @media (max-width: 768px) {
-                h1 {
-                    font-size: 2rem;
-                }
-
-                .login-form {
-                    padding: 20px;
-                }
-
-                .features {
-                    flex-direction: column;
-                    align-items: center;
-                }
-            }
-        </style>
-    </head>
-    <body>
-    <!-- Hamburger Menu Toggle -->
-    <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <!-- Main Menu (hidden by default) -->
-    <nav class="main-menu" id="mainMenu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="plans.html">Plans</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <header>
-            <h1>Welcome to Jesmelliss smartHos <span style="color: #e91e63;">&#128151;</span></h1>
-            <p>Your health is our priority</p>
-        </header>
-
-        <main>
-            <form class="login-form" id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required placeholder="Enter your username">
-                    <div class="error-message" id="usernameError">Please enter a valid username</div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    <span class="toggle-password" id="togglePassword">👁️</span>
                 </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="password-container">
-                        <input type="password" id="password" name="password" required placeholder="Enter your password">
-                        <span class="toggle-password" id="togglePassword">👁️</span>
-                    </div>
-                    <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
-                    <div class="forgot-password">
-                        <a href="#" id="forgotPassword">Forgot password?</a>
-                    </div>
-                </div>
-
-                <button type="submit" class="login-btn">Login</button>
-                <div class="signup-link">
-                    Don't have an account? <a href="signup.html">Sign up here</a>
-                </div>
-            </form>
-
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">🏥</div>
-                    <h3>24/7 Care</h3>
-                    <p>Round-the-clock medical services for all your healthcare needs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍⚕️</div>
-                    <h3>Expert Doctors</h3>
-                    <p>Highly qualified specialists in various medical fields.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💊</div>
-                    <h3>Pharmacy</h3>
-                    <p>On-site pharmacy for quick access to medications.</p>
+                <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+                <div class="forgot-password">
+                    <a href="#" id="forgotPassword">Forgot password?</a>
                 </div>
             </div>
 
-            <h2>We are because of you</h2>
-        </main>
-    </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up here</a>
+            </div>
+        </form>
 
-    <footer>
-        <p>&copy; 2023 Jesmelliss Hospital. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#" style="color: #3b5998;">Facebook</a> |
-            <a href="#" style="color: #1da1f2;">Twitter</a> |
-            <a href="#" style="color: #0077b5;">LinkedIn</a> |
-            <a href="#" style="color: blueviolet;">Instagram</a>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3>24/7 Care</h3>
+                <p>Round-the-clock medical services for all your healthcare needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍⚕️</div>
+                <h3>Expert Doctors</h3>
+                <p>Highly qualified specialists in various medical fields.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💊</div>
+                <h3>Pharmacy</h3>
+                <p>On-site pharmacy for quick access to medications.</p>
+            </div>
         </div>
-    </footer>
 
-    <script>
-        // Menu Toggle Functionality
-        const menuToggle = document.getElementById('menuToggle');
-        const mainMenu = document.getElementById('mainMenu');
+        <h2>We are because of you</h2>
+    </main>
+</div>
 
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mainMenu.classList.toggle('active');
-        });
+<footer>
+    <p>&copy; 2023 Jesmelliss Hospital. All rights reserved.</p>
+    <div class="social-links">
+        <a href="#" style="color: #3b5998;">Facebook</a> |
+        <a href="#" style="color: #1da1f2;">Twitter</a> |
+        <a href="#" style="color: #0077b5;">LinkedIn</a> |
+        <a href="#" style="color: blueviolet;">Instagram</a>
+    </div>
+</footer>
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mainMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-                menuToggle.classList.remove('active');
-                mainMenu.classList.remove('active');
-            }
-        });
+<script>
+    // Menu Toggle Functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const mainMenu = document.getElementById('mainMenu');
 
-        // Password visibility toggle
-        const togglePassword = document.getElementById('togglePassword');
-        const password = document.getElementById('password');
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mainMenu.classList.toggle('active');
+    });
 
-        togglePassword.addEventListener('click', function() {
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            this.textContent = type === 'password' ? '👁️' : '🔒';
-        });
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!mainMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menuToggle.classList.remove('active');
+            mainMenu.classList.remove('active');
+        }
+    });
 
-        // Form validation
-        const loginForm = document.getElementById('loginForm');
-        const usernameError = document.getElementById('usernameError');
-        const passwordError = document.getElementById('passwordError');
+    // Password visibility toggle
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
 
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
+    togglePassword.addEventListener('click', function() {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🔒';
+    });
 
-            // Reset errors
-            usernameError.style.display = 'none';
-            passwordError.style.display = 'none';
+    // Form validation
+    const loginForm = document.getElementById('loginForm');
+    const usernameError = document.getElementById('usernameError');
+    const passwordError = document.getElementById('passwordError');
 
-            let isValid = true;
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
 
-            if (username.length < 3) {
-                usernameError.style.display = 'block';
-                isValid = false;
-            }
+        // Reset errors
+        usernameError.style.display = 'none';
+        passwordError.style.display = 'none';
 
-            if (password.length < 6) {
-                passwordError.style.display = 'block';
-                isValid = false;
-            }
+        let isValid = true;
 
-            if (isValid) {
-                // Simulate successful login
-                showLoading();
-                setTimeout(() => {
-                    // In a real app, you would redirect to dashboard after authentication
-                    alert('Login successful! Redirecting to dashboard...');
-                    window.location.href = 'dashboard.html';
-                }, 1500);
-            }
-        });
-
-        // Forgot password functionality
-        document.getElementById('forgotPassword').addEventListener('click', function(e) {
-            e.preventDefault();
-            const email = prompt('Please enter your email address to reset your password:');
-            if (email) {
-                alert(`Password reset link has been sent to ${email} (simulated)`);
-            }
-        });
-
-        // Show loading state
-        function showLoading() {
-            const btn = document.querySelector('.login-btn');
-            btn.textContent = 'Logging in...';
-            btn.disabled = true;
+        if (username.length < 3) {
+            usernameError.style.display = 'block';
+            isValid = false;
         }
 
-        // Simple animation on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('header').style.opacity = '0';
-            document.querySelector('header').style.transform = 'translateY(20px)';
-            document.querySelector('header').style.transition = 'opacity 0.5s, transform 0.5s';
+        if (password.length < 6) {
+            passwordError.style.display = 'block';
+            isValid = false;
+        }
 
+        if (isValid) {
+            // Simulate successful login
+            showLoading();
             setTimeout(() => {
-                document.querySelector('header').style.opacity = '1';
-                document.querySelector('header').style.transform = 'translateY(0)';
-            }, 100);
-        });
-    </script>
-    </body>
-    </html>
+                // In a real app, you would redirect to dashboard after authentication
+                alert('Login successful! Redirecting to dashboard...');
+                window.location.href = 'dashboard.html';
+            }, 1500);
+        }
+    });
+
+    // Forgot password functionality
+    document.getElementById('forgotPassword').addEventListener('click', function(e) {
+        e.preventDefault();
+        const email = prompt('Please enter your email address to reset your password:');
+        if (email) {
+            alert(`Password reset link has been sent to ${email} (simulated)`);
+        }
+    });
+
+    // Show loading state
+    function showLoading() {
+        const btn = document.querySelector('.login-btn');
+        btn.textContent = 'Logging in...';
+        btn.disabled = true;
+    }
+
+    // Simple animation on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('header').style.opacity = '0';
+        document.querySelector('header').style.transform = 'translateY(20px)';
+        document.querySelector('header').style.transition = 'opacity 0.5s, transform 0.5s';
+
+        setTimeout(() => {
+            document.querySelector('header').style.opacity = '1';
+            document.querySelector('header').style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
+</body>
+</html>  
